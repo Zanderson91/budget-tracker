@@ -29,7 +29,11 @@ function checkData() {
     const getAll = store.getAll();
 
     getAll.onsuccess = function () {
-        
+        if (getAll.result.length > 0) {
+            fetch("/api/transaction/all", {
+                method: "POST"
+            })
+        }
     }
 
 }
