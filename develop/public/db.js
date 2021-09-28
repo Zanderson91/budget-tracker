@@ -5,3 +5,10 @@ request.onupgradeneeded = function (event) {
     const db = event.target.result;
     db.createObjectStore("pending", {autoIncrement: true});
 };
+
+request.onsuccess = function (event) {
+    db = eVENT.TARGET.RESULT;
+    if (navigator.online) {
+        checkDatabase();
+    }
+};
