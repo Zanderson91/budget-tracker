@@ -1,15 +1,13 @@
 let db;
-const request = index.db.open("budget", 1);
+const request = indexedDB.open("budget", 1);
 
 request.onupgradeneeded = function (event) {
     const db = event.target.result;
-    db.createObjectStore("pending", {
-        autoIncrement: true
-    });
+    db.createObjectStore("pending", {autoIncrement: true});
 };
 
 request.onsuccess = function (event) {
-    db = eVENT.TARGET.RESULT;
+    db = event.target.result;
     if (navigator.online) {
         checkDatabase();
     }
@@ -32,7 +30,7 @@ function checkData() {
 
     getAll.onsuccess = function () {
         if (getAll.result.length > 0) {
-            fetch("/api/transaction/all", {
+            fetch("/api/transaction/bulk", {
                     method: "POST",
                     body: JSON.stringify(getAll.result),
                     headers: {
