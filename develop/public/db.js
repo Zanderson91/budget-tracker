@@ -28,4 +28,8 @@ function checkData() {
     const store = transaction.objectStore("pending");
     const getAll = store.getAll();
 
+    getAll.onsuccess = function () {
+        
+    }
+
 }
