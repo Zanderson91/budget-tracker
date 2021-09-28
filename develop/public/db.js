@@ -12,3 +12,7 @@ request.onsuccess = function (event) {
         checkDatabase();
     }
 };
+
+request.onerror = function (event) {
+    console.log("ERROR:" + event.target.errorCode);
+};
