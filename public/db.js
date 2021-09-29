@@ -9,7 +9,7 @@ request.onupgradeneeded = function (event) {
 request.onsuccess = function (event) {
     db = event.target.result;
     if (navigator.online) {
-        checkDatabase();
+        checkData();
     }
 };
 
@@ -30,7 +30,7 @@ function checkData() {
 
     getAll.onsuccess = function () {
         if (getAll.result.length > 0) {
-            fetch("/api/transaction/bulk", {
+            fetch("/api/transaction", {
                     method: "POST",
                     body: JSON.stringify(getAll.result),
                     headers: {
